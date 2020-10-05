@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      glob: "*.rb"
+      run: rubocop
+    reek:
+      run: reek
+    brakeman:
+      run: brakeman --no-pager
+    fasterer:
+      run: fasterer
+    database_consistency:
+      run: bundle exec database_consistency
+    rails_best_practices:
+      run: rails_best_practices .
