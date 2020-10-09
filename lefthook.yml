@@ -1,11 +1,11 @@
 pre-commit:
   parallel: true
   commands:
+    rspec:
+      run: rspec
     rubocop:
       glob: "*.rb"
       run: rubocop
-    reek:
-      run: reek
     brakeman:
       run: brakeman --no-pager
     fasterer:

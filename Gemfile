@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -33,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 4.0.1'
 end
 
@@ -44,6 +43,7 @@ group :development do
   gem 'brakeman'
   gem 'bullet'
   gem 'database_consistency', require: false
+  gem 'pry', '~> 0.13.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -64,5 +64,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'fasterer'
 gem 'lefthook'
 gem 'rails_best_practices'
-gem 'reek'
 gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
