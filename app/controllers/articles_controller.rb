@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @articles = Article.includes([:rich_text_content])
@@ -14,7 +15,7 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'

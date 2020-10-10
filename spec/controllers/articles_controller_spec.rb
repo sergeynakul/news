@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
-  let!(:articles) { create_list(:article, 3) }
+  let(:admin) { create(:admin) }
+  let(:articles) { create_list(:article, 3, admin: admin) }
 
   describe 'GET #index' do
     before { get :index }

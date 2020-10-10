@@ -1,7 +1,6 @@
-require 'rails_helper'
-
 describe 'As user I could visit Home page and', type: :feature do
-  let!(:articles) { create_list(:article, 3) }
+  let!(:admin) { create(:admin) }
+  let!(:articles) { create_list(:article, 3, admin: admin) }
 
   it 'see news feed with public articles' do
     visit root_path

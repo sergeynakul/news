@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  belongs_to :admin
+
   validates :title, presence: true
   validates :visibility, inclusion: { in: %w[private public] }
   validates :reference, uniqueness: true, allow_blank: true

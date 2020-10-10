@@ -8,6 +8,9 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/20201006173205_create_active_storage_tables.active_storage.rb
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
 
 Style/Documentation:
   Enabled: false

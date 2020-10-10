@@ -1,8 +1,9 @@
-require 'rails_helper'
-
 RSpec.describe Article, type: :model do
-  let(:article) { create(:article) }
-  let(:another_article) { create(:article) }
+  let(:admin) { create(:admin) }
+  let(:article) { create(:article, admin: admin) }
+  let(:another_article) { create(:article, admin: admin) }
+
+  it { is_expected.to belong_to(:admin) }
 
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_inclusion_of(:visibility).in_array(%w[private public]) }

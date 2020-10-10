@@ -59,6 +59,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -85,6 +86,12 @@ GEM
     crass (1.0.6)
     database_consistency (0.8.8)
       activerecord (>= 3.2)
+    devise (4.7.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.4.4)
     erubi (1.9.0)
     erubis (2.7.0)
@@ -124,6 +131,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     parallel (1.19.2)
     parser (2.7.1.5)
       ast (~> 2.4.1)
@@ -184,6 +192,9 @@ GEM
       ffi (~> 1.0)
     regexp_parser (1.8.1)
     require_all (3.0.0)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.4)
     rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
@@ -260,6 +271,8 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     uniform_notifier (1.13.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -290,6 +303,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   database_consistency
+  devise
   factory_bot_rails
   fasterer
   jbuilder (~> 2.7)
