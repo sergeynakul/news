@@ -1,0 +1,19 @@
+<% content_for :meta_head do %>
+    <title>Articles</title>
+<% end %>
+
+<h1>Articles</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @articles %>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<nav class="navbar navbar-light bg-light mb-3">
+  <%= link_to 'Articles', root_path, class: 'navbar-brand' %>
+  <%= link_to 'Admin panel', admin_path %>
+  <span class="navbar-text">
+    Welcome, <b>Admin</b> | <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </span>
+</nav>

@@ -1,0 +1,20 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/development.rb
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/20201006173205_create_active_storage_tables.active_storage.rb
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false

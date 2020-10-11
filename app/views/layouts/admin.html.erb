@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin panel</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%= render 'admin/navigation' %>
+    <div class="container">
+      <%= render partial: 'shared/flash', flash: flash %>
+      <%= yield %>
+    </div>
+    <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+  </body>
+</html>
