@@ -6,6 +6,9 @@ class Article < ApplicationRecord
   validates :reference, uniqueness: true, allow_blank: true
   has_rich_text :content
 
+  scope :published, -> { where(published: true) }
+  scope :public_visible, -> { where(visibility: 'public') }
+
   after_create :set_unique_reference
 
   private

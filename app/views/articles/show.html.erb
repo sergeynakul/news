@@ -1,3 +1,11 @@
+<% content_for :meta_head do %>
+  <title><%= @article.title %></title>
+  <meta name="description" content="<%= truncate(@article.content.to_plain_text, length: 100) %>" />
+  <meta property="og:title" content="<%= @article.title %>" />
+  <meta property="og:description" content="<%= truncate(@article.content.to_plain_text, length: 100) %>" />
+  <meta property="og:type" content="article"/>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -8,20 +16,4 @@
   <%= @article.content %>
 </p>
 
-<p>
-  <strong>Visibility:</strong>
-  <%= @article.visibility %>
-</p>
-
-<p>
-  <strong>Reference:</strong>
-  <%= @article.reference %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @article.published %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

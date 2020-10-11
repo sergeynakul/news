@@ -1,49 +1,23 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_article, only: :show
 
   def index
-    @articles = Article.includes([:rich_text_content])
+    @articles = if current_user
+                  Article.published.includes([:rich_text_content])
+                else
+                  Article.published.public_visible.includes([:rich_text_content])
+                end
   end
 
-  def show; end
+  def show
+    return if current_user
 
-  def new
-    @article = Article.new
-  end
-
-  def edit; end
-
-  def create
-    @article = current_user.articles.new(article_params)
-
-    if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to root_path, alert: 'You are not athorized to view this page.' if @article.visibility == 'private'
   end
 
   private
 
   def set_article
     @article = Article.find(params[:id])
-  end
-
-  def article_params
-    params.require(:article).permit(:title, :content, :visibility, :published)
   end
 end
